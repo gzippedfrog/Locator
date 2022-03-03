@@ -38,10 +38,13 @@ class Locator {
   }
 
   setStreet(street) {
+    if (/[^A-Za-zА-Яа-я]+/.test(street)) return;
     this.street = street;
   }
 
   fetchSuggestions() {
+    if (!this.street) return;
+
     const query = this.city + " " + this.street;
 
     fetch(api_url + "suggest/address", {
