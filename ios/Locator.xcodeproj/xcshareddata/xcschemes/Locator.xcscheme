@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "RNTestTask.app"
-               BlueprintName = "RNTestTask"
-               ReferencedContainer = "container:RNTestTask.xcodeproj">
+               BuildableName = "Locator.app"
+               BlueprintName = "Locator"
+               ReferencedContainer = "container:Locator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "RNTestTaskTests.xctest"
-               BlueprintName = "RNTestTaskTests"
-               ReferencedContainer = "container:RNTestTask.xcodeproj">
+               BuildableName = "LocatorTests.xctest"
+               BlueprintName = "LocatorTests"
+               ReferencedContainer = "container:Locator.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "RNTestTask.app"
-            BlueprintName = "RNTestTask"
-            ReferencedContainer = "container:RNTestTask.xcodeproj">
+            BuildableName = "Locator.app"
+            BlueprintName = "Locator"
+            ReferencedContainer = "container:Locator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "RNTestTask.app"
-            BlueprintName = "RNTestTask"
-            ReferencedContainer = "container:RNTestTask.xcodeproj">
+            BuildableName = "Locator.app"
+            BlueprintName = "Locator"
+            ReferencedContainer = "container:Locator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

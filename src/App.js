@@ -12,22 +12,20 @@ import { observer } from "mobx-react-lite";
 import locator from "./store/locator";
 
 const App = observer(() => {
-  function handleStreetChange(street) {
+  const handleStreetChange = (street) => {
     locator.setStreet(street);
-  }
+  };
 
-  function handleStreetBlur() {
+  const handleStreetBlur = () => {
     locator.fetchSuggestions();
-  }
+  };
 
-  function renderItem({ item }) {
-    return (
-      <List.Item
-        title={item.data.street_with_type}
-        description={item.data.city}
-      />
-    );
-  }
+  const renderItem = ({ item }) => (
+    <List.Item
+      title={item.data.street_with_type}
+      description={item.data.city}
+    />
+  );
 
   return (
     <>
@@ -40,23 +38,26 @@ const App = observer(() => {
         <TextInput
           label="IP адрес"
           value={locator.ip}
-          disabled
           style={styles.textInput}
+          disabled
+          mode="outlined"
         />
 
         <TextInput
           label="Город"
           value={locator.city}
-          disabled
           style={styles.textInput}
+          disabled
+          mode="outlined"
         />
 
         <TextInput
           label="Улица"
           value={locator.street}
-          onChangeText={handleStreetChange}
           style={styles.textInput}
+          onChangeText={handleStreetChange}
           onBlur={handleStreetBlur}
+          mode="outlined"
         />
 
         <Subheading style={styles.listTitle}>Список найденных улиц:</Subheading>
@@ -78,14 +79,16 @@ const App = observer(() => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    flex: 1
+    flex: 1,
+    backgroundColor: theme.colors.background
   },
   textInput: {
     marginBottom: 10
   },
   listContainer: {
-    backgroundColor: "#eee",
-    borderRadius: theme.roundness
+    borderRadius: theme.roundness,
+    borderWidth: 1,
+    borderColor: theme.colors.disabled
   },
   listTitle: {
     marginBottom: 10
