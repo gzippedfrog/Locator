@@ -2,9 +2,8 @@ import React from "react";
 import { FlatList, StatusBar, StyleSheet, View } from "react-native";
 import {
   Appbar,
-  Caption,
-  DefaultTheme as theme,
   List,
+  Provider as PaperProvider,
   Subheading,
   TextInput
 } from "react-native-paper";
@@ -28,69 +27,58 @@ const App = observer(() => {
   );
 
   return (
-    <>
-      <StatusBar backgroundColor={theme.colors.primary} />
+    <PaperProvider>
+      <StatusBar />
       <Appbar.Header>
         <Appbar.Content title="Locator" />
       </Appbar.Header>
 
-      <View style={styles.container}>
-        <TextInput
-          label="IP адрес"
-          value={locator.ip}
-          style={styles.textInput}
-          disabled
-          mode="outlined"
-        />
+      <FlatList
+        data={locator.suggestions}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.value}
+        style={styles.listContainer}
+        ListHeaderComponent={
+          <View style={styles.container}>
+            <TextInput
+              label="IP адрес"
+              value={locator.ip}
+              style={styles.textInput}
+              disabled
+              mode="outlined"
+            />
 
-        <TextInput
-          label="Город"
-          value={locator.city}
-          style={styles.textInput}
-          disabled
-          mode="outlined"
-        />
+            <TextInput
+              label="Город"
+              value={locator.city}
+              style={styles.textInput}
+              disabled
+              mode="outlined"
+            />
 
-        <TextInput
-          label="Улица"
-          value={locator.street}
-          style={styles.textInput}
-          onChangeText={handleStreetChange}
-          onBlur={handleStreetBlur}
-          mode="outlined"
-        />
+            <TextInput
+              label="Улица"
+              value={locator.street}
+              style={styles.textInput}
+              onChangeText={handleStreetChange}
+              onBlur={handleStreetBlur}
+              mode="outlined"
+            />
 
-        <Subheading style={styles.listTitle}>Список найденных улиц:</Subheading>
-        {locator.suggestions.length ? (
-          <FlatList
-            data={locator.suggestions}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.value}
-            style={styles.listContainer}
-          />
-        ) : (
-          <Caption>сначала введите название улицы</Caption>
-        )}
-      </View>
-    </>
+            <Subheading>Список найденных улиц:</Subheading>
+          </View>
+        }
+      />
+    </PaperProvider>
   );
 });
 
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    flex: 1,
-    backgroundColor: theme.colors.background
+    flex: 1
   },
   textInput: {
-    marginBottom: 10
-  },
-  listContainer: {
-    borderRadius: theme.roundness,
-    borderWidth: 1,
-    borderColor: theme.colors.disabled
-  },
-  listTitle: {
     marginBottom: 10
   }
 });
